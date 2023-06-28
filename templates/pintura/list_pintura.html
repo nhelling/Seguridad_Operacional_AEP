@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block title %}
+Listado de AVANCE DE PINTURA
+{% endblock %} 
+{% block content %}  
+
+<p> </p> 
+<p> </p>
+<h1 class="text-light bg-dark">Listado de AVANCE DE PINTURA:</h1>
+<p> </p> 
+<p> </p>
+<p> </p>
+<p> </p> 
+{% if request.user.is_superuser %} 
+    <a href="/PINTURA/create_pintura/"    class="btn btn-primary" >CARGAR PINTURA</a>
+    <p> </p>
+    <p> </p>
+    <p> </p>  
+{% endif %} 
+<form action ="" method = "POST" enctype = "multipart/form-data"></form>
+<div>    
+<div class="table-responsive-sm">
+<table class="table  table-bordered table-striped table-hover text-center table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Posicion</th>
+        <th scope="col">Lineas de Guia</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Carteleria</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Linea de Seguridad</th>
+        <th scope="col">Sector</th>
+        <th scope="col">Pintado</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>   
+       
+        {% for pintura in pinturas %}            
+            <tr>
+                <th scope="row">{{pintura.id}}</th>
+                <td>{{pintura.fecha_pos}}</td>
+                <td>{{pintura.posicion}}</td>
+                <td>{{pintura.lineas_de_guia}}</td>
+                <td>{{pintura.fecha_carteleria}}</td>
+                <td>{{pintura.carteleria}}</td>
+                <td>{{pintura.fecha_lineas_seguridad}}</td>
+                <td>{{pintura.lineas_seguridad}}</td>
+                <td>{{pintura.sector}}</td>
+                <td>{{pintura.pintado}}</td>
+                {% if pintura.estado == 'ABIERTO' %}
+                    <td><a href="#" class="btn btn-danger">ABIERTO</a></td>
+                {% else%}
+                    <td><a href="#" class="btn btn-success">CERRADO</a></td>
+                {% endif %} 
+
+                {% if request.user.is_superuser %}
+                    <td><a href="/PINTURA/update_pintura/{{pintura.id}}/" class="btn btn-primary">Actualizar</a></td> 
+                    <td><a href="/PINTURA/delete_pintura/{{pintura.id}}/" class="btn btn-danger">Eliminar</a></td> 
+                {% endif %}
+            </tr>
+        {% endfor %}  
+
+
+        
+    </tbody>
+</table>
+</div>
+    {% endblock %} 

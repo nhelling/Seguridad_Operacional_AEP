@@ -1,0 +1,124 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="robots" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="Zenix - Crypto Admin Dashboard">
+	<meta property="og:title" content="Zenix - Crypto Admin Dashboard">
+	<meta property="og:description" content="Zenix - Crypto Admin Dashboard">
+	<meta property="og:image" content="https://zenix.dexignzone.com/xhtml/social-image.png">
+	<meta name="format-detection" content="telephone=no">
+    <title>SO -  Seguridad Operacional AEP </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="vh-100">
+    <div class="authincation h-100">        
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+									<div class="text-center mb-3">
+										<img src="images/logo-full.png" alt="">
+									</div>
+                                    <h4 class="text-center mb-4">Creación IMPACTO CON AVES</h4>
+                                    {% if errors %}
+                                    <div class="alert alert-danger" role = "alert">
+                                        {{errors}}
+                                    </div>
+                                    {% endif %}
+                                    <form action="/AVIARIO/create_aviario/" method="post" enctype = "multipart/form-data">
+                                        {% csrf_token %}                                       
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Fecha</strong></label>
+                                            <input type="date" class="form-control" placeholder="01/01/2023" name="fecha_aviario">
+                                        </div>   
+                                        <div class="form-group">
+                                            <label for="availability">Especie Ave</label>
+                                            <select class="form-control"  name="especie_ave">
+                                                <option >CERNICALO</option>
+                                                <option >CHIMANGO</option>
+                                                <option >GOLONDRINA</option>
+                                                <option >HALCONCITO COLORADO</option>
+                                                <option >LECHUZA</option>
+                                                <option >MURCIELAGO</option>
+                                                <option >PALOMA TORCAZA</option>
+                                                <option >TERO</option>
+                                                <option >OTROS</option>
+                                                <option >SIN EVIDENCIA</option>                                                
+                                            </select>
+                                        </div>  
+                                            <div class="form-group">
+                                                <label for="availability">Empresa</label>
+                                                <select class="form-control"  name="empresa">
+                                                    <option >5U - LADE</option>
+                                                    <option >AJ - AMERICAN JET</option>
+                                                    <option >AR - ARSA</option>
+                                                    <option >FO - FLYBONDI</option>
+                                                    <option >G3 - GOL</option>
+                                                    <option >H2 - SKY</option>
+                                                    <option >JA - JETSMART CHILE</option>
+                                                    <option >JJ - LATAM BRASIL</option>
+                                                    <option >LA - LATAM AIRLINES</option>
+                                                    <option >LP - LATAM PERU </option>    
+                                                    <option >WJ - JETSMART ARGENTINA </option>
+                                                    <option >ZP - PARANAIR </option> 
+                                                    <option >PRV - AV. GENERAL </option>
+                                                </select>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Equipo</strong></label>
+                                            <input type="text" class="form-control" placeholder="LV-XXX" name="equipo">
+                                        </div> 
+                                        <div class="form-group">
+                                            <label for="availability">Estado</label>
+                                            <select class="form-control"  name="estado">
+                                                <option >ABIERTO</option>
+                                                <option >CERRADO</option>
+                                                
+                                            </select>
+                                        </div>  
+                                        <div class="text-center">
+                                            <div class="btn-group"  role="group" aria-label="Basic example">
+                                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                                                <button type="reset" class="btn btn-light">Restablecer</button>                                            
+                                            </div>
+                                        </div>                                       
+     
+                                    </form>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{% static 'vendor/global/global.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+	<script src="{% static 'js/deznav-init.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+    
+</body>
+</html>

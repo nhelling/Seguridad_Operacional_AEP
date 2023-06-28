@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+Actualización Usuario
+{% endblock %} 
+
+{% block content %}
+    <h1>   Completa el formulario para actualizar tus datos </h1>
+
+    {% if form %}
+    
+        <form action ="" method = "POST" enctype = "multipart/form-data" >
+            
+        {% csrf_token %}
+            <table>
+            {{form.as_table}}
+            </table>         
+
+            <input type="submit" value = "Actualizar">
+        </form> 
+
+    {% endif %}
+
+    {% if errors%}    
+    <h3 style = "color: red"> {{errors}}  </h3>               
+        
+    {% endif %}
+    
+{% endblock %}

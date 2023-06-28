@@ -1,0 +1,159 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>{% block title %}  {% endblock %} </title>
+</head>
+<body>
+    <header>  
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/"><img src = "https://infonegocios.info/content/images/2022/07/20/52093/conversions/logo-aeropuertos-2000-medium-size.jpg" class="rounded-circle" alt = "profile_picture" with = "40px" height = "40px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">   
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    ANEXOS
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/SMS/list_sms/">SMS</a>
+                    <a class="dropdown-item" href="/PNSO/list_pnso/">PNSO</a>
+                    <a class="dropdown-item" href="/DERRAMES/list_derrame/">DERRAMES</a>
+                    <a class="dropdown-item" href="/AVIARIO/list_aviario/">IMPACTO CON AVES</a>
+                    <a class="dropdown-item" href="/PINTURA/list_pintura/">PINTURA</a>
+                  </div>
+                </div>              
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    INFORMES
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/ADR/list_adr/">ADR</a>
+                    <a class="dropdown-item" href="/BSO/list_bso/">BSO</a>
+                    <a class="dropdown-item" href="/PROTOCOLO/list_protocolo/">PROTOCOLOS y PROCEDIMIENTOS</a>
+                    <a class="dropdown-item" href="/CAPACITACION/list_capacitacion/">CAPACITACIONES</a>
+                  </div>
+                </div>
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    ESTADISTICAS
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item disabled" href="#">GRAF. 1</a>
+                    <a class="dropdown-item disabled" href="#">GRAF. 2</a>
+                    <a class="dropdown-item disabled" href="#">GRAF. 3</a>
+                  </div>
+                </div>  
+                <div class="dropdown">
+                  <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false">
+                    METEOROLOGIA
+                  </button>
+                  <div class="dropdown-menu">
+                    <a class="dropdown-item" href="/METEO/list_meteorologia/">METAR SABE</a>
+                    <a class="dropdown-item" href="/VIENTO/list_viento/">VIENTO</a>
+                    <a class="dropdown-item" href="/MAPA/list_mapa/">MAPA</a>
+                  </div>
+                </div>               
+                 
+                  <li class="nav-item dropdown" style="margin-right: 600px;"></li>
+                  {% if request.user.is_authenticated%}
+                    <li class="nav-item">
+                    <a class="nav-link" href="/users/logout/">Logout </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/users/update/">{{request.user.username}} </a>
+                    </li>
+                  {% if request.user.profile.profile_picture.url != '' %}
+                    <img src = "{{request.user.profile.profile_picture.url}}" class="rounded-circle" alt = "profile_picture" with = "40px" height = "40px">                          
+                  {% endif %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="/users/update/profile/">Actualizar Perfil </a>
+                    </li>
+                  {% else %}
+                    <li class="nav-item">
+                    <a class="nav-link" href="/users/login/">Login </a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/users/signup/">Signup </a>
+                    </li>
+                  {% endif %}
+                </li>              
+              </ul>
+              
+              <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name = "buscar">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+              </form>             
+            
+          </nav>
+    </header>
+    {% block content %}
+
+ 
+
+    {% endblock %}  
+
+    <footer class="bg-dark text-center text-white" style="margin-top:350px; " position: absolute;>
+      <div id="ww_8d0be501eadf9" v='1.3' loc='auto' a='{"t":"ticker","lang":"es","sl_lpl":1,"ids":[],"font":"Arial","sl_ics":"one_a","sl_sot":"celsius","cl_bkg":"image","cl_font":"#FFFFFF","cl_cloud":"#FFFFFF","cl_persp":"#81D4FA","cl_sun":"#FFC107","cl_moon":"#FFC107","cl_thund":"#FF5722"}'>Weather Data Source: <a href="https://tiempolargo.com/" id="ww_8d0be501eadf9_u" target="_blank">Tiempo para 25 días</a></div><script async src="https://app1.weatherwidget.org/js/?id=ww_8d0be501eadf9"></script>
+        <!-- Grid container -->
+        <div class="container p-4 pb-0">
+            <!-- Section: Social media -->
+            <section class="mb-4">   
+          
+            <!-- aa2000 -->        
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.aa2000.com.ar/" role="button"> 
+              <img src="https://www.aa2000.com.ar/img/aa2000_1200x630.png" alt="..." with = "50px" height = "50px">        
+              <i class="fab fa-google"></i></a>
+        
+            <!-- ANAC -->        
+            <a class="btn btn-outline-light btn-floating m-1" href="https://www.argentina.gob.ar/anac" role="button"> 
+            <img src="https://www.hangarx.com.ar/wp-content/uploads/2016/11/FB-logo-anac.png" alt="..." with = "50px" height = "50px">        
+            <i class="fab fa-google"></i></a>
+
+             <!-- ORSNA -->        
+             <a class="btn btn-outline-light btn-floating m-1" href="https://www.argentina.gob.ar/orsna" role="button"> 
+              <img src="https://dailyweb.com.ar/data/img_cont/img_imagenes/img_gr/10388.jpg" alt="..." with = "50px" height = "50px">        
+              <i class="fab fa-google"></i></a>
+
+              <!-- NOTAMS DINS -->        
+             <a class="btn btn-outline-light btn-floating m-1" href="https://www.notams.faa.gov/dinsQueryWeb/" role="button"> 
+              <img src= "https://www.notams.faa.gov/dinsQueryWeb/images/n_seal_af.gif" alt="..." with = "50px" height = "50px">        
+              <i class="fab fa-google"></i></a>
+
+             <!-- SERVICIO METEOROLOGICO NACIONAL -->        
+             <a class="btn btn-outline-light btn-floating m-1" href="https://www.smn.gob.ar/" role="button"> 
+              <img src="https://elabcrural.com/wp-content/uploads/2022/10/SMN-150-ANOS-1.jpg" alt="..." with = "50px" height = "50px">        
+              <i class="fab fa-google"></i></a>
+
+                <!-- METAR SABE -->        
+             <a class="btn btn-outline-light btn-floating m-1" href="https://metar-taf.com/SABE" role="button"> 
+              <img src="https://static-s.aa-cdn.net/img/gp/20600015534043/hw7p-FK3Bu-NOiQwP4mCMFz5vrMIAyMCbMHxCKqZwT3-uElhhIE9E_D_7AldlqksKA?v=1" alt="..." with = "50px" height = "50px">        
+              <i class="fab fa-google"></i></a>
+
+              
+        
+            
+        </div>
+        <!-- Grid container -->
+        
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © NH 2023 Copyright:  
+            <a class="text-white" href="https://mdbootstrap.com/">  Seguridad Operacional AEP</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

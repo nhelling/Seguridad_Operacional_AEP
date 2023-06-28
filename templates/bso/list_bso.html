@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% block title %}
+Listado de BOLETIN SEGURIDAD OPERACIONAL
+{% endblock %} 
+{% block content %}  
+
+
+<p> </p>
+<p> </p> 
+<h1 class="text-light bg-dark">Listado de BOLETIN SEGURIDAD OPERACIONAL:</h1>
+<p> </p>
+<p> </p> 
+<p> </p>
+<p> </p> 
+{% if request.user.is_superuser %} 
+    <a href="/BSO/create_bso/"    class="btn btn-primary" >Crear BSO</a>
+    <p> </p>
+    <p> </p>
+    <p> </p>  
+{% endif %} 
+<form action ="" method = "POST" enctype = "multipart/form-data"></form>
+<div>    
+<div class="table-responsive-sm">
+<table class="table  table-bordered table-striped table-hover text-center table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fecha BSO</th>
+        <th scope="col">Orden</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">PDF</th>        
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>   
+       
+        {% for bso in bsos %}            
+            <tr>
+                <th scope="row">{{bso.id}}</th>
+                <td>{{bso.fecha_bso}}</td>
+                <td>{{bso.orden}}</td>
+                <td>{{bso.titulo}}</td>
+                <td>{{bso.pdf}}</td>         
+                
+                {% if request.user.is_superuser %}
+                    <td><a href="/BSO/update_bso/{{bso.id}}/" class="btn btn-primary">Actualizar</a></td> 
+                    <td><a href="/BSO/delete_bso/{{bso.id}}/" class="btn btn-danger">Eliminar</a></td> 
+                {% endif %}
+            </tr>
+        {% endfor %}      
+      
+        
+    </tbody>
+</table>
+</div>
+ 
+
+
+    {% endblock %} 

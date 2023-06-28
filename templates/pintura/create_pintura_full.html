@@ -1,0 +1,213 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="robots" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="description" content="Zenix - Crypto Admin Dashboard">
+	<meta property="og:title" content="Zenix - Crypto Admin Dashboard">
+	<meta property="og:description" content="Zenix - Crypto Admin Dashboard">
+	<meta property="og:image" content="https://zenix.dexignzone.com/xhtml/social-image.png">
+	<meta name="format-detection" content="telephone=no">
+    <title>SO -  Seguridad Operacional AEP </title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png' %}">
+	<link href="{% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+</head>
+
+<body class="vh-100">
+    <div class="authincation h-100">        
+        <div class="container h-100">
+            <div class="row justify-content-center h-100 align-items-center">
+                <div class="col-md-6">
+                    <div class="authincation-content">
+                        <div class="row no-gutters">
+                            <div class="col-xl-12">
+                                <div class="auth-form">
+									<div class="text-center mb-3">
+										<img src="images/logo-full.png" alt="">
+									</div>
+                                    <h4 class="text-center mb-4">Creación PINTURA</h4>
+                                    {% if errors %}
+                                    <div class="alert alert-danger" role = "alert">
+                                        {{errors}}
+                                    </div>
+                                    {% endif %}
+                                    <form action="/PINTURA/create_pintura/" method="post" enctype = "multipart/form-data">
+                                        {% csrf_token %}                                       
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Fecha</strong></label>
+                                            <input type="date" class="form-control" placeholder="01/01/2023" name="fecha_pos">
+                                        </div>   
+                                        <div class="form-group">
+                                            <label for="availability">Posicion</label>
+                                            <select class="form-control"  name="posicion">
+                                                <option >01</option>
+                                                <option >02</option>
+                                                <option >PAS-03</option>
+                                                <option >PAS-03A</option>
+                                                <option >PAS-03C</option>
+                                                <option >PAS-04</option>
+                                                <option >PAS-05</option>
+                                                <option >PAS-06</option>
+                                                <option >PAS-07</option>
+                                                <option >PAS-08</option>
+                                                <option >PAS-09</option>
+                                                <option >PAS-10</option>
+                                                <option >PAS-11</option>
+                                                <option >PAS-12</option>
+                                                <option >13</option>
+                                                <option >14</option>
+                                                <option >15</option>
+                                                <option >16</option>
+                                                <option >17</option>
+                                                <option >18</option>
+                                                <option >19</option>
+                                                <option >20</option>
+                                                <option >21</option>
+                                                <option >22</option>
+                                                <option >23</option>
+                                                <option >24</option>
+                                                <option >25</option>
+                                                <option >26</option>
+                                                <option >27</option>
+                                                <option >28</option>
+                                                <option >29</option>
+                                                <option >30</option>
+                                                <option >31</option>
+                                                <option >32A</option>
+                                                <option >32B</option>
+                                                <option >32C</option>
+                                                <option >67</option>
+                                                <option >68</option>
+                                                <option >69</option>
+                                                <option >39</option>
+                                                <option >39A</option>
+                                                <option >40</option>
+                                                <option >41</option>
+                                                <option >42</option>
+                                                <option >43</option>
+                                                <option >44</option>
+                                                <option >45</option>
+                                                <option >46</option>
+                                                <option >47</option>
+                                                <option >48</option>
+                                                <option >49</option>
+                                                <option >50</option>
+                                                <option >51</option>
+                                                <option >66</option>
+                                                                                            
+                                            </select>
+                                        </div>  
+                                        <div class="form-group">
+                                            <label for="availability">Lineas de guia</label>
+                                            <select class="form-control"  name="lineas_de_guia">
+                                                <option >EJE INGRESO</option>
+                                                <option >INDICADOR POSICION</option>
+                                                <option >INDICADOR STOP BAR</option>
+                                                <option >INDICADOR POSICION / STOP BAR</option>
+                                                <option >N/A</option>
+                                                <option >CEBRADO</option>
+                                                <option >COMPLETA</option>
+                                                <option >PUNTO PARKING PASARELA</option>
+                                                <option >ROJO Y BLANCO</option>                                                    
+                                            </select>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Fecha Carteleria</strong></label>
+                                            <input type="date" class="form-control" placeholder="01/01/2023" name="fecha_carteleria">
+                                        </div> 
+                                        <div class="form-group">
+                                            <label for="availability">Carteleria</label>
+                                            <select class="form-control"  name="carteleria">
+                                                <option >EJE INGRESO</option>
+                                                <option >INDICADOR POSICION</option>
+                                                <option >INDICADOR STOP BAR</option>
+                                                <option >INDICADOR POSICION / STOP BAR</option>
+                                                <option >N/A</option>
+                                                <option >CEBRADO</option>
+                                                <option >COMPLETA</option>
+                                                <option >PUNTO PARKING PASARELA</option>
+                                                <option >ROJO Y BLANCO</option>                                                    
+                                            </select>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="mb-1"><strong>Fecha Lineas de Seguridad</strong></label>
+                                            <input type="date" class="form-control" placeholder="01/01/2023" name="fecha_lineas_seguridad">
+                                        </div> 
+                                        <div class="form-group">
+                                            <label for="availability">Lineas de Seguridad</label>
+                                            <select class="form-control"  name="lineas_seguridad">
+                                                <option >EJE INGRESO</option>
+                                                <option >INDICADOR POSICION</option>
+                                                <option >INDICADOR STOP BAR</option>
+                                                <option >INDICADOR POSICION / STOP BAR</option>
+                                                <option >N/A</option>
+                                                <option >CEBRADO</option>
+                                                <option >COMPLETA</option>
+                                                <option >PUNTO PARKING PASARELA</option>
+                                                <option >ROJO Y BLANCO</option>                                                    
+                                            </select>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="availability">Sector</label>
+                                            <select class="form-control"  name="sector">
+                                                <option >PLAT. COMERCIAL</option>
+                                                <option >PLAT. INDUSTRIAL</option>
+                                                <option >PLAT. SUR</option>                                                                                                  
+                                            </select>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="availability">Pintado</label>
+                                            <select class="form-control"  name="pintado">
+                                                <option >% 33</option>
+                                                <option >% 50</option>
+                                                <option >% 75</option> 
+                                                <option >% 100</option>                                                                                                
+                                            </select>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="availability">Estado</label>
+                                            <select class="form-control"  name="estado">
+                                                <option >ABIERTO</option>
+                                                <option >CERRADO</option>                                                                                                                                               
+                                            </select>                                        
+                                        </div>                                         
+                                        <div class="text-center">
+                                            <div class="btn-group"  role="group" aria-label="Basic example">
+                                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                                                <button type="reset" class="btn btn-light">Restablecer</button>                                            
+                                            </div>
+                                        </div>                                       
+     
+                                    </form>                                   
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{% static 'vendor/global/global.min.js' %}"></script>
+	<script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'js/custom.min.js' %}"></script>
+	<script src="{% static 'js/deznav-init.js' %}"></script>
+    <script src="{% static 'js/demo.js' %}"></script>
+    
+</body>
+</html>

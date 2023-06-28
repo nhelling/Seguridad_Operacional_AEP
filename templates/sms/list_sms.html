@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% block title %}
+
+Listado de SMS
+{% endblock %} 
+{% block content %}  
+<p> </p>
+<p> </p> 
+<h1 class="text-light bg-dark">Listado de SMS:</h1>
+<p> </p>
+<p> </p>  
+<p> </p>
+<p> </p>  
+{% if request.user.is_superuser %}
+    <a href="/SMS/create_sms/" class="btn btn-primary">Crear SMS</a>
+    <p> </p>
+    <p> </p>
+    <p> </p>  
+{% endif %} 
+<form action ="" method = "POST" enctype = "multipart/form-data"></form>
+<div>    
+<div class="table-responsive-sm">
+<table class="table  table-bordered table-striped table-hover text-center table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">FECHA</th>
+        <th scope="col">EVENTO</th>
+        <th scope="col">DESCRIPCION</th>
+        <th scope="col">MITIGACION</th>
+        <th scope="col">ESTADO</th>
+        <th scope="col">STATUS</th>
+        <th scope="col">SEGUIMIENTO</th>
+        <th scope="col">RELEVAMIENTO FOTOG.</th>        
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>   
+       
+        {% for sms in smss %}            
+            <tr>
+                <th scope="row">{{sms.id}}</th>
+                <td>{{sms.fecha}}</td>
+                <td>{{sms.evento}}</td>
+                <td>{{sms.descripcion}}</td>
+                <td>{{sms.mitigacion}}</td>
+                {% if sms.estado == 'ABIERTO' %}
+                    <td><a href="#" class="btn btn-danger">ABIERTO</a></td>
+                {% else%}
+                    <td><a href="#" class="btn btn-success">CERRADO</a></td>
+                {% endif %} 
+                <td>{{sms.status}}</td>
+                <td>{{sms.seguimiento}}</td>                  
+                
+                <td>{{sms.image_sms}}</td> 
+
+                {% if request.user.is_superuser %}
+                    <td><a href="/SMS/update_sms/{{sms.id}}/" class="btn btn-primary">Actualizar</a></td> 
+                    <td><a href="/SMS/delete_sms/{{sms.id}}/" class="btn btn-danger">Eliminar</a></td>
+                {% endif %} 
+            </tr>
+        {% endfor %}     
+      
+        
+    </tbody>
+</table>
+</div>
+ 
+
+
+    {% endblock %} 

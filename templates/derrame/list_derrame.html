@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block title %}
+Listado de DERRAME DE HIDROCARBUROS
+{% endblock %} 
+{% block content %}  
+
+
+<p> </p>
+<p> </p> 
+<h1 class="text-light bg-dark">Listado de DERRAME DE HIDROCARBUROS:</h1>
+<p> </p>
+<p> </p> 
+<p> </p>
+<p> </p> 
+{% if request.user.is_superuser %} 
+    <a href="/DERRAMES/create_derrame/"    class="btn btn-primary" >Crear DERRAME DE HIDROCARBUROS</a>
+    <p> </p>
+    <p> </p>
+    <p> </p>  
+{% endif %} 
+<form action ="" method = "POST" enctype = "multipart/form-data"></form>
+<div>    
+<div class="table-responsive-sm">
+<table class="table  table-bordered table-striped table-hover text-center table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fecha DERRAME</th>
+        <th scope="col">POSICION</th>
+        <th scope="col">SUSTANCIA</th>
+        <th scope="col">EMPRESA</th>       
+        <th scope="col">EQUIPO</th> 
+        <th scope="col">METROS AFEC.</th> 
+        <th scope="col">PINTURA AFEC.</th> 
+        <th scope="col">JUNTAS AFEC.</th> 
+        <th scope="col">ESTADO</th>  
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>   
+       
+        {% for derrame in derrames %}            
+            <tr>
+                <th scope="row">{{derrame.id}}</th>
+                <td>{{derrame.fecha_derrame}}</td>
+                <td>{{derrame.posicion}}</td>
+                <td>{{derrame.sustancia}}</td>
+                <td>{{derrame.empresa}}</td>
+                <td>{{derrame.equipo}}</td>      
+                <td>{{derrame.metros}}</td>
+                <td>{{derrame.pintura_afectada}}</td>
+                <td>{{derrame.juntas}}</td>
+                {% if derrame.estado == 'ABIERTO' %}
+                    <td><a href="#" class="btn btn-danger">ABIERTO</a></td>
+                {% else%}
+                    <td><a href="#" class="btn btn-success">CERRADO</a></td>
+                {% endif %}   
+                
+                {% if request.user.is_superuser %}
+                    <td><a href="/DERRAMES/update_derrame/{{derrame.id}}/" class="btn btn-primary">Actualizar</a></td> 
+                    <td><a href="/DERRAMES/delete_derrame/{{derrame.id}}/" class="btn btn-danger">Eliminar</a></td> 
+                {% endif %}
+            </tr>
+        {% endfor %}      
+      
+        
+    </tbody>
+</table>
+</div>
+ 
+
+
+    {% endblock %} 

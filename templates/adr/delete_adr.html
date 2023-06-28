@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    confirmacion de borrado ANALISIS DE RIESGO
+{% endblock %}
+
+{% block content %}
+<p> </p>
+    <p> </p> 
+    <h2>ADR a borrar {{object.name}}</h2>
+    <p> </p>
+    <p> </p> 
+    <p> </p>
+    <p> </p> 
+    <p>Seguro que desea eliminarlo?</p>
+    <p> </p>
+    <p> </p> 
+    <p> </p>
+    <p> </p> 
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="submit" value="Borrar">
+    </form>
+
+
+{% endblock %}

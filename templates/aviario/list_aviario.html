@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}
+Listado de IMPACTO_CON_AVES
+{% endblock %} 
+{% block content %}  
+
+
+<p> </p>
+<p> </p> 
+<h1 class="text-light bg-dark">Listado de IMPACTO CON AVES:</h1>
+<p> </p>
+<p> </p> 
+<p> </p>
+<p> </p> 
+{% if request.user.is_superuser %} 
+    <a href="/AVIARIO/create_aviario/"    class="btn btn-primary" >Crear IMPACTO CON AVES</a>
+    <p> </p>
+    <p> </p>
+    <p> </p>  
+{% endif %} 
+<form action ="" method = "POST" enctype = "multipart/form-data"></form>
+<div>    
+<div class="table-responsive-sm">
+<table class="table  table-bordered table-striped table-hover text-center table-dark">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Especie</th>
+        <th scope="col">Empresa</th>
+        <th scope="col">Equipo</th>   
+        <th scope="col">Estado</th>       
+        <th scope="col">Actualizar</th>
+        <th scope="col">Eliminar</th>
+      </tr>
+    </thead>
+    <tbody>   
+       
+        {% for aviario in aviarios %}            
+            <tr>
+                <th scope="row">{{aviario.id}}</th>
+                <td>{{aviario.fecha_aviario}}</td>
+                <td>{{aviario.especie_ave}}</td>
+                <td>{{aviario.empresa}}</td>
+                <td>{{aviario.equipo}}</td>
+                {% if aviario.estado == 'ABIERTO' %}
+                    <td><a href="#" class="btn btn-danger">ABIERTO</a></td>
+                {% else%}
+                    <td><a href="#" class="btn btn-success">CERRADO</a></td>
+                {% endif %}  
+                
+               
+                
+                {% if request.user.is_superuser %}
+                    <td><a href="/AVIARIO/update_aviario/{{aviario.id}}/" class="btn btn-primary">Actualizar</a></td> 
+                    <td><a href="/AVIARIO/delete_aviario/{{aviario.id}}/" class="btn btn-danger">Eliminar</a></td> 
+                {% endif %}
+            </tr>
+        {% endfor %}      
+      
+        
+    </tbody>
+</table>
+</div>
+ 
+
+
+    {% endblock %} 
